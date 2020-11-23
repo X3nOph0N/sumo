@@ -106,6 +106,15 @@ class Phase:
         return ("Phase(duration=%s, state='%s', minDur=%s, maxDur=%s%s%s" %
                 (self.duration, self.state, self.minDur, self.maxDur, name, next))
 
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.next == None:
+            raise StopIteration
+        else :
+            return self.next
+
 
 class TLSProgram:
 
